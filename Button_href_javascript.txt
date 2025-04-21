@@ -12,4 +12,16 @@
   });
 </script>
 
+
+Tambahan Simple
+<button type="button" class="btn btn-warning tambah-share" data-jenjang="TK"><i class="fas fa-share-square"></i> TK</button>
+
+		<script type="text/javascript">
+			$(document).on('click', '.tambah-share', function(){
+				const jenjang = $(this).data('jenjang'); ngambil data dari button data-jenjang="TK"
+				let idNya = localStorage.getItem("idTombolShare"); // ngambil data dari localstorage jika pernah di set sebelumnya
+				confirm(`${jenjang} - ${idNya}`);
+			});
+		</script>
+
 //======================== PUDINTEA ==============================================
