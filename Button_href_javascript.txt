@@ -48,6 +48,40 @@ Tombol Hapus
 		});
 	</script>
 
+Ajak Response
+===============
+$.ajax({
+	url: '<?=base_url($pdn_url.'/status_active');?>',
+	method: "POST",
+	data: { id: id, status: status },
+	success: function(response) {
+		//console.log(response);
+		if(response.kode === 200){
+			if(response.status === '1'){
+				$.notify('Data Di Aktifkan', "success");
+			}else if (response.status === '0') {
+				$.notify('Data Di Nonaktifkan', "info");
+			}else{
+				$.notify('Maaf, Respon Data error', "error");
+			}
+		}else{
+			$.notify('Maaf, Data gagal diubah', "error");
+		}
+	},
+	error: function() {
+		$.notify('Maaf, Ada kesalahan!', "error");
+	}
+});
+
+
+
+
+
+
+
+
+
+
 
 
 //======================== PUDINTEA ==============================================
