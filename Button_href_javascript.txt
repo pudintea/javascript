@@ -95,8 +95,37 @@ public function table()
 		echo json_encode($row,TRUE);
 	endif;
 }
-
-
+JAVASCRIPT TABLE NYA
+=====================
+function pdn_tableJson(){
+	var pdn_url = '<?=base_url($pdn_url.'/table_share');?>';
+	var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>';
+	var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
+	
+	$.ajax({
+		url: pdn_url,
+		type: "POST",
+		dataType: "json",
+		data: {
+			[csrfName]: csrfHash,
+			id: idinf
+		},
+		success: function(data){
+			let jmlData = data.length;
+			let buatTabel = "";
+	
+			for(let a = 0; a < jmlData; a++){
+				buatTabel += "<tr>"
+					+ "<td>" + data[a]["jenjang"] + "</td>"
+					+ "<td class='text-right' width='8%'>" + data[a]["action"] + "</td>"
+					+ "</tr>";
+			}
+			document.getElementById("PDNTableJson").innerHTML = buatTabel;
+		}
+	});
+}
+// Panggil Function
+pdn_tableJson();
 
 
 
