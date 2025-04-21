@@ -73,7 +73,28 @@ $.ajax({
 	}
 });
 
-
+TABLE
+========
+public function table()
+{
+	if($this->input->method(TRUE)=='POST'): // Hanya lewat metode post saja yang di izinkan melihat dan mengambil data
+		$this->load->model($this->MainModel(), 'M_najzmi');
+		$data_murid = $this->M_najzmi->getMurid();
+		
+		$row = array();
+		$no = 0;
+		foreach($data_murid as $dtm) { 
+			$no++;
+			$row[] = array(
+				'nama_murid'		=> '<a href="'.base_url().'laporan_murid/cetak/'.base64_encode($dtm->id_murid).'" target="_blank">'.$dtm->murid_nama.'</a>',
+				'nama_kelas' 		=> $dtm->kelas_nama.' - '.$dtm->kelas_subnama,
+				'jumlah_poin' 		=> $dtm->jumlah_poin,
+			);
+		}
+		header('Content-Type: application/json');
+		echo json_encode($row,TRUE);
+	endif;
+}
 
 
 
