@@ -1,0 +1,76 @@
+================== VERSI 2 =============================
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		var ctx = document.getElementById("PdnPrestasi");
+		var lineChart = new Chart(ctx, {
+			type: "bar",
+			data: {
+				labels: ['Keagamaan','Akademik','Non Akademik'],
+				datasets: [
+					{
+						label: '', // Legend ini tidak akan tampil karena display:false
+						data: [110, 230, 150],
+						borderColor: ['#008000','#118000','#00FF66'],
+						backgroundColor: ['#008000','#118000','#00FF66'],
+					}
+				]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				legend: { // <-- versi Chart.js 2.x
+					display: false
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
+			}
+		});
+	});
+</script>
+
+=================== VERSI 3 KEATAS ======================
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		var ctx = document.getElementById("PdnPrestasi");
+		var lineChart = new Chart(ctx, {
+			type: "bar",
+			data: {
+				labels: ['Keagamaan','Akademik','Non Akademik'],
+				datasets: [
+					{
+						label: '', // Legend ini tidak akan tampil karena display:false
+						data: [110, 230, 150],
+						borderColor: ['#008000','#118000','#00FF66'],
+						backgroundColor: ['#008000','#118000','#00FF66'],
+					}
+				]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				plugins: {
+					legend: {
+						display: false // <-- ini yang menyembunyikan legend
+					}
+				}
+			}
+		});
+	});
+</script>
+
+
+
+
+
+
+====================== PUDIN.MY.ID ============================
