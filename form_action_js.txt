@@ -12,9 +12,9 @@
     </div>
 </form>
 
-<form action="http://localhost/biotime2/#" id="syncForm" method="post" accept-charset="utf-8">
+<form action="http://localhost/#" id="syncForm" method="post" accept-charset="utf-8">
   <div class="form-row mr-auto">
-    <input type="hidden" name="emp_code" value="73003011" />
+    <input type="hidden" name="emp_code" value="73" />
     <div class="">
       <select name="jml_sinkron" id="jml_sinkron" class="form-control">
         <option value="1">Hari Ini</option>
