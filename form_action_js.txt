@@ -1,0 +1,65 @@
+### FORM ACTION ###
+
+<?php echo form_open('#',array('id'=>'syncForm'));?>
+    <div class="form-row mr-auto">
+        <?php echo form_hidden('emp_code', $pdn_peg->emp_code);?>
+        <div class="">
+            <?=$pdn_jml_sinkron;?>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-sync-alt"></i> Sinkron</button>
+        </div>
+    </div>
+</form>
+
+<form action="http://localhost/biotime2/#" id="syncForm" method="post" accept-charset="utf-8">
+  <div class="form-row mr-auto">
+    <input type="hidden" name="emp_code" value="73003011" />
+    <div class="">
+      <select name="jml_sinkron" id="jml_sinkron" class="form-control">
+        <option value="1">Hari Ini</option>
+        <option value="7">Satu Minggu</option>
+        <option value="15">Dua Minggu</option>
+        <option value="30">Satu Bulan</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-sync-alt"></i> Sinkron</button>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#syncForm').on('submit', function(e) {
+          e.preventDefault(); // Cegah form reload
+  		const form = this; // Tangkap elemen form
+          // const empCode = form.querySelector('input[name="emp_code"]').value;
+          // const jmlSinkron = form.querySelector('select[name="jml_sinkron"]').value;
+          // console.log("Data yang dikirim:", {
+          //     emp_code: empCode,
+          //     jml_sinkron: jmlSinkron
+          // });
+  
+          // $.ajax({
+          //     url: '<?= base_url("nama_controller/proses_sinkron") ?>', // ganti sesuai controller Anda
+          //     method: 'POST',
+          //     data: $(this).serialize(),
+          //     dataType: 'json',
+          //     success: function(res) {
+          //         console.log(res);
+          //         alert('Sinkronisasi berhasil!');
+          //     },
+          //     error: function(xhr, status, error) {
+          //         console.error(xhr.responseText);
+          //         alert('Gagal melakukan sinkronisasi.');
+          //     }
+          // });
+      });
+  });
+</script>
+
+
+---
+--- PUDIN.MY.ID
+---
