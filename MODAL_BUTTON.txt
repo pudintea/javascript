@@ -1,0 +1,38 @@
+
+TOMBOL SHOW MODAL
+===================
+<div class="card-header py-3 text-right">
+  <a href="#" class="btn btn-success btn-sm btn-import"><i class="fa fa-fw fa-lg fa-file-import">&nbsp;</i>Import</a>
+</div>
+
+AREA MODAL
+============
+<div class="modal fade" id="pdnModalData" tabindex="-1" aria-labelledby="pdnModalData" aria-hidden="true">
+		<div class="modal-dialog modal-md"> <!-- modal-md, modal-xl : Sesuaikan saja -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="pdnModalTitle">Import Data</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+						<h1>Hallo World</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+JAVASCRIPT SHOW MODAL
+======================
+	<script type="text/javascript">
+		$(document).on('click', '.btn-import', function(){
+				var pdnModal 	= $('#pdnModalData');
+				pdnModal.modal('show');
+			});
+	</script>
+
+
+
+
+================== MODAL BUTTON BOOTSTRAP =====================
