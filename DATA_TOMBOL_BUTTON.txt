@@ -1,0 +1,63 @@
+/// SATU =============
+<a href="#" class="btn btn-primary btn-sm btn-circle" data-youtube="IDYOUTUBE">
+    <i class="fas fa-play"></i>
+</a>
+
+<script>
+    // Ambil elemen (misalnya elemen pertama dengan class 'btn-circle')
+    const btn = document.querySelector('.btn-circle');
+
+    // Ambil nilai dari atribut data-youtube
+    const youtubeId = btn.getAttribute('data-youtube');
+
+    console.log(youtubeId); // Akan cetak: IDYOUTUBE
+</script>
+
+
+/// DUA =============
+Alternatif (dengan event listener)
+<a href="#" class="btn btn-primary btn-sm btn-circle" data-youtube="IDYOUTUBE">
+    <i class="fas fa-play"></i>
+</a>
+
+<script>
+    document.querySelector('.btn-circle').addEventListener('click', function(e) {
+        e.preventDefault();
+        const youtubeId = this.getAttribute('data-youtube');
+        console.log('YouTube ID:', youtubeId);
+    });
+</script>
+
+
+/// TIGA =============
+Menggunakan jQuery
+
+<a href="#" class="btn btn-primary btn-sm btn-circle" data-youtube="IDYOUTUBE">
+    <i class="fas fa-play"></i>
+</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.btn-circle').on('click', function(e) {
+      e.preventDefault(); // agar tidak reload halaman
+
+      // Ambil nilai dari atribut data-youtube
+      var youtubeId = $(this).data('youtube'); // jQuery otomatis baca 'data-youtube'
+      
+      console.log('YouTube ID:', youtubeId);
+    });
+  });
+</script>
+
+Penjelasan:
+$(this).data('youtube') secara otomatis membaca atribut data-youtube.
+Tidak perlu pakai getAttribute() seperti di JavaScript murni.
+Pastikan jQuery sudah dimuat sebelum script dijalankan (bisa taruh <script> di bawah, atau pakai $(document).ready() seperti contoh di atas).
+
+Kalau kamu mau pakai untuk lebih dari 1 tombol, cukup pakai class yang sama (.btn-circle), dan ambil nilai data-youtube masing-masing seperti contoh.
+Cocok buat buat pemutar video, modal, dll.
+
+
+
+=========================== PUDIN.MY.ID ==================================
